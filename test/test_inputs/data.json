@@ -1,0 +1,35 @@
+{
+  "nx": 5,
+  "ny": 5,
+  "dx": 0.1,
+  "dy": 0.1,
+  "coeff": 1,
+  "iterations": 100,
+  "sor": 1.5,
+  "c0": 0,
+  "h": 3,
+  "BC_LEFT_WALL": {
+    "type": "CONST",
+    "value": 75
+  },
+  "BC_RIGHT_WALL": {
+    "type": "CONST",
+    "value": 50
+  },
+  "BC_BOTTOM_WALL": {
+    "type": "CONST",
+    "value": 0
+  },
+  "BC_TOP_WALL": {
+    "type": "CONST",
+    "value": 100
+  },
+  "needle": [],
+  "D": 3e-9,
+  "sigma": 0.083,
+  "c_inf": 7,
+  "c0": 7,
+  "k": 0.13,
+  "m": -6.5,
+  "gamma": 1.96e-7
+}

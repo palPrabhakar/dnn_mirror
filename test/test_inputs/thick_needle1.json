@@ -1,0 +1,47 @@
+{
+  "nx": 50,
+  "ny": 51,
+  "dx": 1,
+  "dy": 1,
+  "h": 3,
+  "transient": true,
+  "dt": 1e-4,
+  "iterations": 5000,
+  "nprint": 0,
+  "BC_LEFT_WALL": {
+    "type": "FLUX",
+    "value": 0
+  },
+  "BC_RIGHT_WALL": {
+    "type": "FLUX",
+    "value": 0
+  },
+  "BC_BOTTOM_WALL": {
+    "type": "FLUX",
+    "value": 0
+  },
+  "BC_TOP_WALL": {
+    "type": "FLUX",
+    "value": 0
+  },
+  "needle": [
+    {
+      "x0": 0, 
+      "y0": 25, 
+      "xf": 4, 
+      "yf": 25
+    }
+  ],
+  "D": 628.3185307,
+  "sigma": 0.083,
+  "omega": 0.05,
+  "c_inf": 7,
+  "c0": 7.030583036,
+  "k": 0.13,
+  "m": -6.5,
+  "gamma": 1.96e-7,
+  "integral": 2,
+  "A": 3,
+  "B": 2,
+  "C": 1
+}
