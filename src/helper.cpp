@@ -1,8 +1,12 @@
 #include <cmath>
 #include <iostream>
 /* #include <cuda_runtime.h> */
+#include "dnn.hpp"
 #include "helper.hpp"
+
+#if GPU
 #include "helper_cuda.h"
+#endif
 
 /* int is_device_pointer(const void *ptr) */
 /* { */

@@ -18,6 +18,7 @@ CFLAGS = -std=c++11 -Wall -pedantic
 
 $(MAIN): grid.o dnn.o main.o dnn_gpu.o helper.o
 	$(NVCC) -O2 -o $(MAIN) main.o grid.o dnn.o dnn_gpu.o helper.o $(LIBS)
+
 else
 INCLUDES := -I./include/
 LIBS = -lgsl -lgslcblas -lm
@@ -25,6 +26,7 @@ CFLAGS = -std=c++11 -Wall -pedantic -DGPU=0
 
 $(MAIN): grid.o dnn.o main.o helper.o
 	$(CXX) -O2 -o $(MAIN) main.o grid.o dnn.o helper.o $(LIBS)
+
 endif
 
 # $(MAIN): grid.o dnn.o main.o 
@@ -39,12 +41,17 @@ dnn.o: dnn.cpp dnn.hpp data_types.hpp
 main.o: main.cpp
 	$(CXX) $(CFLAGS) $(INCLUDES) -c main.cpp
 
+ifeq ($(GPU), 1)
 helper.o: helper.cpp helper.hpp
 	$(CXX) $(CFLAGS) $(NVCC_INCLUDES) $(INCLUDES) -c helper.cpp
 
-ifeq ($(GPU), 1)
 dnn_gpu.o: dnn_gpu.cu data_types.hpp
 	$(NVCC) $(NVCCFLAGS) $(NVCC_INCLUDES) -c dnn_gpu.cu
+
+else
+helper.o: helper.cpp helper.hpp
+	$(CXX) $(CFLAGS) $(INCLUDES) -c helper.cpp
+
 endif
 
 clean:
